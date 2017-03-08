@@ -10,5 +10,6 @@ This is meant to be run as a command line tool.
 
 To start, simple activate a virtualenv, install the dependencies with ```$ pip install -r requirements.txt``` and run the ```run.py``` file.
 
+You will be prompted to enter your JWPlayer API key and secret and will be able to submit a JSON feed url.
 
 ![screen shot](https://github.com/mdublin/JWPlayer-Video-Asset-Migrator/blob/master/terminal_screen_shot.png?raw=true)
