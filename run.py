@@ -13,17 +13,20 @@ os.environ['api_secret'] = api_secret
 # feed setup
 feed_ok = False
 while feed_ok is False:
-    feed_prompt = prompt.query("Please enter the JSON video asset feed you wish to parse: ")
+    feed_prompt = prompt.query(
+        "Please enter the JSON video asset feed you wish to parse: ")
     if validators.url(feed_prompt) is True:
         puts(colored.green("URL has been validated!"))
         feed_ok = True
     else:
-        puts(colored.red("There's a problem with this URL, please try submitting a different url."))
+        puts(colored.red(
+            "There's a problem with this URL, please try submitting a different url."))
         feed_ok = False
 
 start_ingest_prompt = ""
 while start_ingest_prompt == "":
-    start_ingest_prompt = prompt.query("Would you like to start the ingest process? [Y/N]")
+    start_ingest_prompt = prompt.query(
+        "Would you like to start the ingest process? [Y/N]")
     if start_ingest_prompt.upper() == ("Y" or "YES"):
         puts(colored.green("Starting ingest process..."))
         # sending feed url and creds to parser

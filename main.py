@@ -7,6 +7,7 @@ import datetime
 from clint.textui import colored, puts
 from JWPlayer_api import create
 
+
 def parse_feed(feed_url):
     r = requests.get(feed_url)
     json_feed = json.loads(r.text)
@@ -15,7 +16,8 @@ def parse_feed(feed_url):
     sourcetype = "url"
     sourceformat = "mp4"
 
-    # nested callback that send video assets to JWPlayer API if HD renditions are available
+    # nested callback that send video assets to JWPlayer API if HD renditions
+    # are available
     def add_elements():
         nonlocal title, description, tags, date
         title = item["name"]
@@ -23,11 +25,17 @@ def parse_feed(feed_url):
         tags = str((", ").join(item["tags"]))
         # for converting to human readable, but API wants unicode timestamp
         #date = datetime.datetime.fromtimestamp(int(item["creationDate"][0:10])).strftime('%Y-%m-%d')
-        # slicing because the Unix time stamp in Brightcove JSON feed is problematic, adding extra values
+        # slicing because the Unix time stamp in Brightcove JSON feed is
+        # problematic, adding extra values
         date = int(item["creationDate"][0:10])
         # sending video asset to JWPlayer Management API
-        create(title=title, description=description, tags=tags, sourceurl=sourceurl, sourcetype=sourcetype, sourceformat=sourceformat)
-
+        create(
+            title=title,
+            description=description,
+            tags=tags,
+            sourceurl=sourceurl,
+            sourcetype=sourcetype,
+            sourceformat=sourceformat)
 
     for index, item in enumerate(json_feed['items']):
         if index < 5:
@@ -43,7 +51,8 @@ def parse_feed(feed_url):
                     break
                 else:
                     if index == len(json_feed) - 1:
-                        puts(colored.red("Skipping this asset, no HD rendition available..."))
+                        puts(
+                            colored.red("Skipping this asset, no HD rendition available..."))
 
 
 if __name__ == '__main__':
