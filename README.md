@@ -9,3 +9,6 @@ While the [JWPlayer API documentation](https://developer.jwplayer.com/jw-platfor
 This is meant to be run as a command line tool.
 
 To start, simple activate a virtualenv, install the dependencies with ```$ pip install -r requirements.txt``` and run the ```run.py``` file.
+
+
+![screen shot](https://github.com/mdublin/JWPlayer-Video-Asset-Migrator/blob/master/terminal_screen_shot.png?raw=true)
