@@ -8,7 +8,7 @@ While the [JWPlayer API documentation](https://developer.jwplayer.com/jw-platfor
 
 This is meant to be run as a command line tool.
 
-To start, simple activate a virtualenv, install the dependencies with ```$ pip install -r requirements.txt``` and run the ```run.py``` file.
+To start, simple activate a [virtualenv](https://virtualenv.pypa.io/en/stable/), install the dependencies with ```$ pip install -r requirements.txt``` and run the ```run.py``` file.
 
 You will be prompted to enter your JWPlayer API key and secret and will be able to submit a JSON feed url.
 
